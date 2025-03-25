@@ -149,7 +149,7 @@ header {
   display: flex;
   align-items: center;
   padding: 4rem 2rem;
-  background-color: #f9f9f9;
+  background-color: #fff;
 }
 
 .experience-image {
@@ -180,63 +180,77 @@ header {
 
 /* Our Models Section */
 .our-models {
-  padding: 4rem 2rem;
-}
-
-.our-models h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.our-models p {
-  text-align: center;
-  color: #555;
-  margin-bottom: 2rem;
-}
-
-.model-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.model-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.model-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.model-name {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  text-align: center;
-  padding: 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.model-item:hover .model-name {
-  opacity: 1;
-}
+    padding: 4rem 2rem;
+  }
+  
+  .our-models h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .our-models p {
+    text-align: center;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  
+  .model-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 250px)); /* Adjusted width range */
+    gap: 2rem;
+    justify-content: center; /* Center the grid items */
+  }
+  
+  .model-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Added for hover effect */
+  }
+  
+  .model-item img {
+    width: 100%; /* Changed from 50% to fill container */
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease; /* Added for hover effect */
+  }
+  
+  .model-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Changed from 47.5% to match full width */
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+  }
+  
+  .model-item:hover .model-name {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Optional: Add hover scale effect */
+  .model-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .model-item:hover img {
+    transform: scale(1.05);
+  }
 
 /* New Faces Section */
 .new-faces {
   display: flex;
   align-items: center;
   padding: 4rem 2rem;
-  background-color: #f9f9f9;
+  background-color: #fff;
 }
 
 .new-faces-image {
@@ -426,6 +440,7 @@ header {
   margin-bottom: 2rem;
 }
 
+
 /* Footer */
 footer {
     background-color: #333;
@@ -517,4 +532,105 @@ footer {
     width: 100%;
     margin-top: 2rem;
   }
-}
+}/* Add these to your CSS */
+.mobile-nav {
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+  }
+  
+  .mobile-nav.open {
+    transform: translateX(0);
+  }
+  
+  .hamburger-menu, .close-button {
+    transition: transform 0.3s ease;
+  }
+  
+  .hamburger-menu:hover, .close-button:hover {
+    transform: scale(1.1);
+  }/* Add these to your CSS */
+.model-item {
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .model-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .model-name {
+    transition: all 0.4s ease;
+    transform: translateY(100%);
+    opacity: 0 !important;
+  }
+  
+  .model-item:hover .model-name {
+    transform: translateY(0);
+    opacity: 1 !important;
+  }/* Add if you have 3 bars in your hamburger icon */
+.hamburger-menu span {
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  /* Add these styles to your existing CSS */
+.model-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .button-container {
+    text-align: center;
+    padding: 15px;
+    background: #fff;
+  }
+  
+  .view-profile-btn {
+    display: inline-block;
+    padding: 8px 25px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+  }
+  
+  .view-profile-btn:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+  }.button-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    padding: 0; /* Remove previous padding */
+  }
+  
+  .view-profile-btn {
+    /* Keep existing styles */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }.model-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes button to bottom */
+  }
+  
+  .button-container {
+    margin-top: auto; /* Forces button to bottom */
+    padding: 15px 0 0;
+  }
